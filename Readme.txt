@@ -1,4 +1,4 @@
-Jerome "PJ" Williams
+Jerome "PJ" Williams 
 http://jworksstudios.com/plugins/jwtextureswim/
 Git: https://github.com/jworksstudios/jwtextureswim
 Live Demo: http://jworksstudios.github.io/jwtextureswim/
