@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+  <title>jwTexture Swim - A jQuery plugin to Animate background textures</title>
+
+  <meta name = "description" content = "jwTexture Swim - A jQuery plugin that lets you animate background textures">
+  <meta name = "keywords" content = "jwtextureswim, jw sexture swim, textureswim, texture swim, animate background textures, animate backgrounds, jquery, jquery plugin">
+
+  <meta name = "author" content = "JWorks Studios">
+  <meta name = "robots" content = "index, follow">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Style -->
+  <link rel="stylesheet" href="css/jwtextureswim.css">
+  <link rel="stylesheet" href="prism/prism.css">
+  
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesnt work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link href='http://fonts.googleapis.com/css?family=Courgette|Montserrat|Raleway' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <section id = "main" class = "dark">
+   <div class = "bgfade">
+    <div class = "container">
+      <div class = "row">
+        <div id = "main-title" class = "col-xs-12 text-center" >
+          <h1>jwTextureSwim</h1>
+		  <h2 class = "med">A jQuery plugin to Animate background textures</h2>
+		  <img id = "arrow" src = "images/arrows.png"/>
+		  <div class = "med">$(".swim").textureSwim();</div>
+		</div>
+      </div> 
+    </div>	  
+   </div>
+  </section>
+  <section>
+    <div class = "container">
+	  <div class = "row">
+	    <div class = "col-xs-12 col-sm-6">
+		  <img src = "images/jquery_logo.jpg" />
+		  <img src = "images/logo.jpg" />
+		</div>
+	    <div class = "col-xs-12 col-sm-6">
+		  <h2 class = "med">Why create jwTextureSwim?</h2>
+          <p>My website looked pretty good with the background texture I was using, but for some reason, it felt...boring. I wanted to see what it looked like with a little motion.</p>
+		  <p>Mixing jQuery animation and CSS is great. But there are some things that don't quite work as you would like, right-out-of-the-box. With the standard <code>animate()</code> function, I wasn't able to make multiple changes to the background-position attribute at the same time; And so, jwTextureSwim was born.</p>
+		  <p>jwTextureSwim is a jQuery plugin that lets you animate background textures. With some easy setup and little creativity, you can create some very interesting effects.</p>
+		</div>
+      </div>
+	</div>
+  </section>
+  <section class = "dark tutorial">
+    <div class = "container">
+	  <div class = "row">
+	    <div id = "get-files" class = "col-xs-12 col-sm-6 pull-right text-center">
+		  <a href = "js/jquery-1.11.3.min.js" target = "_blank"><img src = "images/jquery_js.jpg" /></a>
+		  <a href = "js/jwtextureswim-1.0.js" target = "_blank"><img src = "images/swim_js.jpg" /></a>
+		  <a href = "jwtextureswim-live-demo-tutorial.zip"><img src = "images/zip.jpg" /></a>
+		</div>
+		<div class = "col-xs-12 col-sm-6">
+		  <h2 id = "get-jwtextureswim" class = "norm">Get jwTextureSwim</h2>
+	      <p>Like any other plugin, you first start by downloading a jQuery version (<a href = "js/jquery-1.11.3.min.js" target = "_blank">1.11.3</a>) and the <a href = "js/jwtextureswim-1.0.js" target = "_blank">jwTextureSwim .js</a> file (also in <a href = "js/jwtextureswim-1.0.min.js" target = "_blank">minified format</a>). You can compile the .js files yourself via the direct-link or you can download the full <a href = "jwtextureswim-live-demo-tutorial.zip">.zip file</a> that contains everything already set up for you. Use it to follow along and then use it for your own website!</p> 
+		</div>
+      </div>
+   <div id = "table-of-contents" class = "col-xs-12 col-md-4 pull-right">
+     <div class = "sticky">
+		 <h2>Table of Contents</h2>
+		 <a href = "#get-jwtextureswim">Get jwTextureSwim</a><br />
+		 <a href = "#setup-your-page">Setup your page</a><br />
+		 <a href = "#add-the-jquery">Add the jQuery</a><br />
+		 <a href = "#multiple-elements">Multiple Elements</a><br />
+		 <a href = "#multiple-directions">Multiple Directions</a><br />
+		 <a href = "#options">Options</a><br />
+		 <a href = "#get-creative">Get Creative</a><br />
+		 <a href = "#tips">Tips</a><br />
+		 <a href = "#github">Fork it! (on Github)</a><br />		 
+     </div>
+   </div>
+   <div id = "tutorial-column" class = "col-xs-12 col-md-8">
+	 <div class = "row">
+	   <div class = "col-xs-12">
+		  <h2 id = "setup-your-page">Setup Your Page</h2>
+	      <p>As always, it starts with HTML and linking to your sources. You can optionally link to my CSS or include your own.</p>
+		  <p>While you're at it, include a <code>div</code> that has the background texture you want to animate. (If you are using my 
+		  <a href = "follow-along.html" target = "_blank">follow-along.html</a> file or included my CSS, adding the class <code>.checker</code> will add a texture to your div.)</p>
+		  <span class = "med">(HTML)</span>
+		  <pre><code class="language-markup">
+&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;!-- Optional. You can include your own --&gt;
+  &lt;style rel = &quot;stylesheet&quot; href = &quot;css/jwtextureswim.css&quot;&gt;&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Make sure your DIV has a background texture --&gt;
+  &lt;div class=&quot;checker&quot;&gt;jwQuakeText&lt;/div&gt;
+
+  &lt;script src=&quot;js/jquery-1.11.3.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;js/jwtextureswim-1.0.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+		</div>	
+        <div class = "col-sm-12 hide-mobile">
+		  <p>You'll get something like this</p>
+		  <div class = "checker">jwQuakeText</div>
+        </div>		
+      </div>
+	  <div class = "row">
+	    <div class = "col-sm-12">
+		  <h2 id = "add-the-jquery">Add the jQuery</h2>
+		  <p>Once your element is setup and has a background texture, animate the texture by targeting the container in the <code>&lt;script&gt;</code> section:</p>
+		  <pre><code class="language-markup">
+&lt;script type = &quot;text/javascript&quot;&gt;
+  $(&quot;.checker&quot;).textureSwim();
+&lt;/script&gt;</code></pre>
+		</div>
+	  </div>
+	  <div class = "row">
+	    <div class = "col-sm-12">
+		  <p>...You should see movement!</p>
+		  <div id = "anim1" class = "checker">Scroll......</div>
+		  <p>That's how to animate background images using jQuery and jwTextureSwim. As easy as that. But, what if you want to <em>swim</em> multiple 
+		  elements at the same time?</p>
+		</div>
+	  </div>
+	  <div class = "row">
+	    <div class = "col-sm-12">
+		  <h2 id = "multiple-elements">Multiple Elements</h2>
+		  <p>As quickly as you were able to setup and swim your first element, it's just as intuitive to do the same for multiple elements. Add a couple of new <code>div</code>s to your <code>HTML</code>, and give one of them a different class name.</p>
+		  <p>For those using my <code>CSS</code>, you can use <code>.checker</code> and <code>.chess</code>. (Also, you can add <code>.third</code> too to
+		  fit them shoulder-to-shoulder.)</p>
+		  <span class = "med">(HTML)</span>
+		  <pre><code class="language-markup">
+// Head + Body
+
+&lt;!--------------------------------------------&gt;
+&lt;!------------- New Div Setup ----------------&gt;
+&lt;!--------------------------------------------&gt;
+&lt;div class=&quot;checker third&quot;&gt;Checker...&lt;/div&gt;
+&lt;div class=&quot;chess third&quot;&gt;Chess...&lt;/div&gt;
+&lt;div class=&quot;checker third&quot;&gt;Checker...&lt;/div&gt;
+
+// Scripts</code></pre>
+          <p>And update your <code>&lt;script&gt;</code> with the new class. <u>It's ok to share the same call!</u></p>
+          <span class = "med">(jQuery)</span>
+		  <pre><code class="language-markup">
+&lt;script type = &quot;text/javascript&quot;&gt;
+  $(&quot;.checker, .chess&quot;).textureSwim();
+&lt;/script&gt;</code></pre>
+          <p>You're starting to see the picture...</p>
+		  <div class = "checker trois third">Checkers......</div>		  
+		  <div class = "chess trois third">Chess......</div>		  
+		  <div class = "checker trois third">Checkers......</div>		  
+		</div>
+	  </div>
+	  <div class = "row">
+	    <div class = "col-sm-12">
+		  <h2 id = "multiple-directions">Animate Texture Backgrounds in X and Y Directions </h2>
+          <p>So your background textures are animating thanks to a little jQuery and jwTextureSwim, but you want more than a scroll to the right, right?
+		  Let's change the direction of some of the elements.</p>
+		  <p>First, give <b>each</b> of our 3 elements its own, distinct <code>id</code>: something like <code>d1</code>, <code>d2</code>, and <code>d3</code>.</p>
+		  <pre><code class="language-markup">
+// Head + Body
+
+&lt;!--------------------------------------------&gt;
+&lt;!------------- Add Unique IDs ---------------&gt;
+&lt;!--------------------------------------------&gt;
+&lt;div id="d1" class=&quot;checker third&quot;&gt;Checker...&lt;/div&gt;
+&lt;div id="d2" class=&quot;chess third&quot;&gt;Chess...&lt;/div&gt;
+&lt;div id="d3" class=&quot;checker third&quot;&gt;Checker...&lt;/div&gt;
+
+// Scripts</code></pre>
+
+          <p>Next, we need to change the directions. By default, jwTextureSwim uses a <code>distanceX</code> of <b>500px</b> (moves to the right on the X-axis) and a <code>distanceY</code> of <b>0px</b> (does not move vertically on the Y-axis) over a <code>duration</code> of 5000ms (5 seconds). But let's change all that!</p>
+		  <pre><code class="language-markup">
+&lt;script type = &quot;text/javascript&quot;&gt;
+  // $(&quot;.checker, .chess&quot;).textureSwim(); // No longer needed
+  $(&quot;#d1&quot;).textureSwim({distanceX: -500});
+  $(&quot;#d2&quot;).textureSwim({distanceY: 200});
+  $(&quot;#d3&quot;).textureSwim({distanceX: -300, distanceY: -200});
+&lt;/script&gt;</code></pre>
+		  <div id = "d1" class = "checker third">Checkers......</div>		  
+		  <div id = "d2" class = "chess third">Chess......</div>		  
+		  <div id = "d3" class = "checker third">Checkers......</div>
+		</div>
+	  </div>
+	  <div class = "row">
+	    <div id = "options" class = "col-xs-12">
+	      <h2>Options</h2>
+		  <p>There are a few options that you can set will change the way the background swims. You've already seen distance in action, but here are some others:</p>
+		 
+		 <b class = "med">IN:</b><br />
+		 <code>distanceX</code> - int - <span class = "desc">Number of pixels the texture will swim (horizontally) in one cycle. Default: 500 
+		  Note: Pass a negative number to go left.</span><br />
+		 <code>distanceY</code> - int - Number of pixels the texture will swim (vertically) in one cycle. Default: 0
+		   Note: Pass a negative number to go up.<br />
+		 <code>duration</code> - int - Milliseconds - The amount of time it will take the texture to move "distance" pixels. Default: 5000 <br />
+		 <code>delay</code> - int - Milliseconds - The time delay after each animation is complete.<br />
+		 <code>ease</code> - string - The easing function to use to animate. Default: Linear. Try passing an empty string...<br />
+		 <code>repeat</code> - int - Number of times the function should repeat. Default: -1 (Infinitely)<br /><br />
+		 
+		 <b class = "med">RET:</b><br />
+		 <code>elements</code> - The element(s) that envoked the function (for chaining).
+	    </div>
+	  </div>
+	  <div class = "row">
+	    <div class = "col-xs-12">
+		  <h2 id = "get-creative">Get Creative!</h2>
+		  With a little creativity, you can use jwTextureSwim to make some impressive elements throughout your website with minimal effort. 
+		</div>
+		<div id = "mountain" class = "col-xs-12">
+		  <div id = "snow">
+		    Get Creative.<br />
+			<pre class = "left">&lt;div id = &quot;mountain&quot;&gt;
+  &lt;div id = &quot;snow&quot;&gt;
+	Get Creative.
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+            <pre class = "right">$("#mountain").textureSwim({
+  duration: 20000
+});
+$("#snow").textureSwim({
+  distanceX: 3000, distanceY: 700, duration: 2000
+});</pre>
+            <div class = "clear"></div>
+		  </div>
+		</div>
+		
+		<div id = "mountain-bright" class = "col-xs-12">
+		  <div id = "rain">
+		    Get Creative.<br />
+			<pre class = "left">&lt;div id = &quot;mountain-bright&quot;&gt;
+  &lt;div id = &quot;rain&quot;&gt;
+	Get Creative.
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+            <pre class = "right">$("#mountain-bright").textureSwim({
+  duration: 20000
+});
+$("#rain").textureSwim({
+  distanceX: 5000, distanceY: 2700, duration: 200
+});</pre>
+            <div class = "clear"></div>
+		  </div>
+		</div>		
+	  </div><!-- Row -->
+	  <div class = "row">
+	    <div class = "col-xs-12">
+		  <h2 id = "tips">Tips</h2>
+		  <b class = "med">How to stop</b> - Stopping a swim is easy. Just call <code>.stop()</code> on the element.<br />Control the rainy mountain scene above...<br />
+		  <button id = "stop-rain" class = "btn">Stop Rain &raquo;</button>
+		  <button id = "stop-mountain" class = "btn">Stop Mountain &raquo;</button>
+		  <button id = "resume-scene" class = "btn">Resume Scene &raquo;</button>
+		</div>
+	  </div>
+	 </div>
+	</div><!-- Left Column -->
+  </section>
+
+  <section class = "light">
+    <div class = "container">
+	  <div class = "row">
+	    <div class = "col-xs-12 col-md-8">
+		  <div class = "text-center">
+		    <img src = "images/GitHub_Logo.png" class = "center img-responsive" /><br />
+	        <h2 id = "github">Fork it on Github</h2>
+	      </div>
+		  <p>If you want to make changes to jwTextureSwim, you can fork the plugin on <a href = "https://github.com/jworksstudios/jwtextureswim" target = "_blank" alt = "jwTextureSwim on Github">Github</a>. If you have questions or feature requests, you can reach me on <a href = "http://www.jworksstudios.com">JWorksStudios.com</a>, <a href = "http://twitter.com/jworksstudios" target = "_blank">twitter/@JWorksStudios</a>,  
+		  or <a href = "https://plus.google.com/118037043563801611497" target = "_blank">g+/JWorksStudios</a>.</p>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <section class = "dark">
+    <div class = "container">
+	  <div class = "row">
+	    <div class = "col-xs-12 col-md-8 def">
+          &copy; <a href = "http://www.jworksstudios.com">JWorks Studios</a> | 
+		  <a href = "http://twitter.com/jworksstudios" target = "_blank">twitter/@JWorksStudios</a> | 
+		  <a href = "https://plus.google.com/118037043563801611497" target = "_blank">g+/JWorksStudios</a> | 
+		  <a href = "http://www.jworksstudios.com/plugins">Plugins</a>
+	    </div>
+	  </div>
+	</div>
+  </section>
+  
+  <!-- Functions, variables and actions specific to this page. -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jwtextureswim-1.0.js"></script>
+  <script src="prism/prism.js"></script>
+  
+  <script>
+    $(window).load(function(){
+	  // Scroll on nav click
+	  $(".sticky a").click(function(e){e.preventDefault(); $("html, body").stop().animate({'scrollTop': $(this.hash).offset().top}, 500, function () {
+	        window.location.hash = target;
+	    });
+	  });
+	  
+	  sticky();
+		
+      // Keep the sticky nav in place.
+	  $(window).scroll(function(){
+	    sticky();
+	  });
+	  
+	  // Texture swimming for the demo...
+	  $("#main").textureSwim({repeat: -1, distanceY: 700, distanceX: 3500, duration: 5000});
+	  $("#anim1, .trois").textureSwim();
+	  $("#d1").textureSwim({distanceX: -500});
+      $("#d2").textureSwim({distanceY: 200});
+      $("#d3").textureSwim({distanceX: -300, distanceY: -200});
+	  $("#snow").textureSwim({distanceX: 3000, distanceY: 700, duration: 2000});
+	  $("#rain").textureSwim({distanceX: 5000, distanceY: 2700, duration: 200});
+	  $("#mountain, #mountain-bright").textureSwim({duration: 20000});
+	  
+	  // Button habbits.
+	  $(".btn").textureSwim({distanceX: -500});
+	  $(".btn").hover(function(){$(this).stop().textureSwim({distanceX: 1000});}, function(){$(this).stop().textureSwim({distanceX: -500});});
+	  
+	  // Controlling the scene with buttons.
+	  $("#stop-rain").click(function(){$("#rain").stop().css({backgroundImage: 'none'});});
+	  $("#stop-mountain").click(function(){$("#mountain-bright").stop();});
+	  $("#resume-scene").click(function(){
+	    $("#rain").css({backgroundImage: "url('images/rain_bg.png')"}).textureSwim({distanceX: 5000, distanceY: 2700, duration: 200}); 
+	    $("#mountain-bright").textureSwim({duration: 20000});
+      });	  
+    });
+	
+	function sticky(){
+	  if($("#table-of-contents").offset().top < $(window).scrollTop()){
+		  $(".sticky").offset({top: ($(window).scrollTop())});
+		}
+		else{
+		  $(".sticky").offset({top: $("#table-of-contents").offset().top});
+		}
+    }
+  </script>
+</body>
+</html>
