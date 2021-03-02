@@ -11,7 +11,7 @@ jQuery - I used version 1.11.3 with this build, and it is included in the folder
 jwTextureSwim - Included in /js/
 
 Jerome "PJ" Williams
-http://jworksstudios.com/plugins/jwtextureswim/
+https://jworksstudios.com/plugins/jwtextureswim/
 Git: https://github.com/jworksstudios/jwtextureswim
-Live Demo: http://jworksstudios.github.io/jwtextureswim/
+Live Demo: https://jworksstudios.github.io/jwtextureswim/
 Twitter/@JWorksStudios 
